@@ -1,0 +1,12 @@
+<h3>以下の内容で、送信する。</h3>
+
+<%= form_for(@pictures) do |f| %>
+  <%= f.hidden_field :comment %>
+  <p>本文:<%= @pictures.comment %></p>
+  <%= f.submit "登録する" %>
+<% end %>
+
+<%= form_for(@pictures, url: new_picture_path, method: 'get') do |f| %>
+  <%= f.hidden_field :comment %>
+  <%= f.submit "もどる", name: 'back' %>
+<% end %>
