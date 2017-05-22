@@ -6,9 +6,9 @@ class NoticeMailer < ApplicationMailer
   #   en.notice_mailer.sendmail_picture.subject
   #
   def sendmail_picture(picture)
-    @picture = picture
+    @pictures = picture
 
-    mail to: picture.email,
-      subject: '【Achieve】ブログが投稿されました'
+    mail to: @pictures.user.email,
+      subject: 'アップロードありがとうございました！'
   end
 end
