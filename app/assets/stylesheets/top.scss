@@ -1,4 +1,120 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  text-align: center;
+  margin-right: auto;
+}
+
+header {
+  width: 100%;
+  background-color: #d10869;
+  height: 50px;
+}
+
+header ul {
+  margin: 0 auto;
+  list-style: none;
+}
+
+header ul a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #808080;
+}
+
+.navbar-default {
+    border: 0;
+}
+
+.navbar {
+    background-color: #d10869;
+    color: white;
+    margin-bottom: 0px;
+}
+
+.navbar-default {
+  .navbar-brand {
+    color: #ccc;
+    &:hover {
+      color: white;
+    }
+  }
+  .navbar-nav > li > a {
+    color: #ccc;
+    &:hover, &:focus {
+      color: white;
+    }
+  }
+  .navbar-nav > .open > a {
+    background-color: transparent;
+    color: white;
+    &:hover, &:focus {
+      background-color: transparent;
+      color: white;
+    }
+  }
+}
+@media (max-width: 767px) {
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ccc;
+    text-align: center;
+    &:hover, &:focus {
+      color: white;
+    }
+  }
+  .navbar-default .navbar-toggle {
+    background-color: transparent;
+    &:hover, &:focus {
+      background-color: transparent;
+    }
+  }
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+}
+
+#top .row .col-sm-6 {
+  text-align: center;
+}
+
+#top {
+  margin-top: 150px;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 1px;
+}
+
+#devices {
+  padding-top: 90px;
+}
+
+img {
+  border-style: none;
+  vertical-align: middle;
+  border: 0;
+}
+
 .flash {
   color: white;
   padding-top: 10px;
+}
+
+footer {
+  width: 100%;
+  background-color: #fafafa;
+  padding: 20px 0 10px 0;
+  color: black;
+  margin: auto;
+  padding-bottom: 10px;
+  font-size: 12px;
+  bottom: 0;
 }

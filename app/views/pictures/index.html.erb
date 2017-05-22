@@ -1,9 +1,21 @@
-<h1>投稿一覧</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4" id="monologue_text">
+      <p><%= link_to "写真をアップロードする", new_picture_path %></p>
+    </div>
+    <div class="col-sm-8">
+      <div id="monologue_list">
+        <% @pictures.each do |picture| %>
+        <div id="monologue">
+          <h3><%= picture.content %></h3>
+          <div id="button">
+          <%= link_to "編集", edit_picture_path(picture.id), class: 'btn btn-default btn-sm btn-primary' %>
+          <%= link_to "削除", picture_path(picture.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-default btn-sm btn-warning' %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<% @pictures.each do |picture| %>
-  <p>タイトル:<%= picture.comment %></p>
-  <%= link_to "編集する", edit_picture_path(picture.id) %>
-  <%= link_to "削除する", picture_path(picture.id), method: :delete, data: { confirm: '本当に削除していいですか？'} %>
-<% end %>
-
-<%= link_to "投稿する", new_picture_path %>

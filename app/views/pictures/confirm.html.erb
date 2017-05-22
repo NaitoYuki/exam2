@@ -1,12 +1,18 @@
-<h3>以下の内容で、送信する。</h3>
+<div class="container">
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 content">
 
-<%= form_for(@pictures) do |f| %>
-  <%= f.hidden_field :comment %>
-  <p>本文:<%= @pictures.comment %></p>
-  <%= f.submit "登録する" %>
-<% end %>
+  <h3>以下の内容でアップロード</h3>
 
-<%= form_for(@pictures, url: new_picture_path, method: 'get') do |f| %>
-  <%= f.hidden_field :comment %>
-  <%= f.submit "もどる", name: 'back' %>
-<% end %>
+  <%= form_for(@pictures) do |f| %>
+    <%= f.hidden_field :comment %>
+    <h3><%= @pictures.content %></h3>
+    <%= f.submit "アップロード",class: 'btn btn-primary btn-block' %>
+  <% end %>
+
+  <%= form_for(@pictures, url: new_picture_path, method: 'get') do |f| %>
+    <%= f.hidden_field :comment %>
+    <%= f.submit "もどる", name: 'back',class: 'btn btn-default btn-block' %>
+  <% end %>
+  </div>
+</div>
+  
