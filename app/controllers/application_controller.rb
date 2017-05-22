@@ -1,12 +1,14 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  add_flash_types :success, :info, :warning, :danger
+
   protect_from_forgery with: :exception
 
   # before_actionで下で定義したメソッドを実行
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  PERMISSIBLE_ATTRIBUTES = %i(name avatar avatar_cache)
+  PERMISSIBLE_ATTRIBUTES = %i(name avatar avatar_cache image image_cache)
 
   protected
 

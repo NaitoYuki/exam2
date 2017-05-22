@@ -3,7 +3,7 @@ class PicturesController < ApplicationController
   before_action :set_pictures, only: [:edit, :update, :destroy]
 
   def index
-    @pictures = Picture.all
+    @pictures = Picture.order(:created_at).reverse_order
   end
 
   def new
@@ -19,7 +19,7 @@ class PicturesController < ApplicationController
 
   def update
     if @pictures.update(pictures_params)
-      redirect_to pictures_path, notice: "更新"
+      redirect_to pictures_path, success: "更新しました！"
     else
       render 'edit'
     end
@@ -27,14 +27,14 @@ class PicturesController < ApplicationController
 
   def destroy
     @pictures.destroy
-    redirect_to pictures_path, notice: "削除"
+    redirect_to pictures_path, success: "削除しました！"
   end
 
   def create
     @pictures = Picture.create(pictures_params)
     @pictures.user_id = current_user.id
     if @pictures.save
-      redirect_to pictures_path, notice: "作成"
+      redirect_to pictures_path, success: "アップロードされました！"
       NoticeMailer.sendmail_picture(@pictures).deliver
     else
       render 'new'
@@ -48,7 +48,7 @@ class PicturesController < ApplicationController
 
   private
     def pictures_params
-      params.require(:picture).permit(:comment)
+      params.require(:picture).permit(:comment, :image, :image_cache)
     end
 
     def set_pictures

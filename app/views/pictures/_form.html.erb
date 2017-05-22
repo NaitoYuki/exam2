@@ -10,7 +10,16 @@
         </ul>
       </div>
     <% end %>
-    <%= f.text :comment %>
-    <br>
+    </br>
+    <div id="filechose">
+      <%= image_tag @pictures.image.url if @pictures.image? %>
+      <%= f.file_field :image %>
+      <%= f.hidden_field :image_cache %>
+    </div>
+    </br>
+    <%= f.label :コメント： %>
+    <%= f.text_field :comment %>
+    </br>
+    </br>
     <%= f.submit 'アップロード', class: 'btn btn-primary btn-block' %>
   <% end %>
